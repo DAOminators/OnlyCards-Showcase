@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
-
 export function Model(props) {
     const group = useRef()
     const { nodes, materials } = useGLTF('/models/subbu.glb')
@@ -10,7 +9,7 @@ export function Model(props) {
     useFrame((state) => {
         const t = state.clock.getElapsedTime()
         group.current.position.y = Math.sin(t) * 0.5
-        group.current.rotation.y = t * 0.5
+        group.current.rotation.x = t * 0.5
     })
 
     return (
