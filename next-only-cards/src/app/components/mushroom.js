@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useGLTF, OrbitControls } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
 export function Mushrooms(props) {
+  const group = useRef()
   const { nodes, materials } = useGLTF('models/stylized_mushrooms.glb')
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime()
+    if (group.current) {
+      group.current.rotation.y = t * 0.25
+    }
+  })
+
   return (
     <>
-      <OrbitControls />
-      <group {...props} dispose={null}>
-        <group rotation={[-Math.PI / 2, 0, 0]} scale={0.749} position={[0.24, -1, 0]}>
-          <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Circle_mushroms_0.geometry}
-              material={materials.mushroms}
-            />
+    < OrbitControls />
+    <group ref={group} {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.749} position={[0.24, -1, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Circle_mushroms_0.geometry}
+            material={materials.mushroms}
+          />
             <mesh
               castShadow
               receiveShadow

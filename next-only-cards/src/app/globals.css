@@ -13,7 +13,9 @@
     --foreground: #ededed;
   }
 }
-
+*{
+  cursor: url(/_next/static/media/CursorsXP.d0cbb739.cur), default;
+}
 body {
   color: var(--foreground);
   background: var(--background);
@@ -29,8 +31,9 @@ body {
 @font-face {
   font-family: 'minecrafter';
   src: url('/fonts/minecrafter.ttf');
- }
+}
 
- h1, h2{
+h1, h2{
   font-family: 'minecrafter';
- }
+}
+

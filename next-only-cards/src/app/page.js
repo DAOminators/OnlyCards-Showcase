@@ -9,6 +9,9 @@ import { Mushrooms } from "./components/mushroom";
 import { Canvas } from '@react-three/fiber';
 import LocomotiveScroll from "locomotive-scroll";
 import ScrollDown from "./components/scrolldown";
+import { Controller } from "./components/controller";
+import Footer from "./components/footer";
+import PlayButton from "./components/play";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +87,7 @@ export default function Home() {
               </p>
             </div>
             <Canvas className="w-1/2">
-              {/* <Mushrooms ref={mushroomsRef}/> */}
+              <Controller />
             </Canvas>
           </div>
         </div>
@@ -116,7 +119,8 @@ export default function Home() {
             </Canvas>
           </div>
         </div>
-
+        <PlayButton />
+        <Footer style={{ zIndex: 20 }} />
       </div>
     </>
   );
