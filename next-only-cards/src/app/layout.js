@@ -15,6 +15,10 @@ const geistMono = localFont({
 export const metadata = {
   title: "Only Cards",
   description: "Only Cards",
+  icons: {
+    icon: 'next-only-cards/public/favicon.ico',
+  },
+
 };
 
 export default function RootLayout({ children }) {
